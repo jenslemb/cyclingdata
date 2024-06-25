@@ -15,6 +15,7 @@ or `"all"` for all available race years. Default is `"all"`.}
 \item{...}{Additional arguments passed to other activated functions
 (`progress`, `sleep`). See `racedata()` for details.
 
+
 #' @details
 The `races` parameter accepts the following inputs: `"tdf"` (Tour de France),
 `"grio"` (Giro d'Italia), `"vuelta"` (La Vuelta ciclista a España), `"dauphine"`
