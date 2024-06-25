@@ -32,6 +32,8 @@
 #' \code{startlist_quality}, \code{avg_speed_winner}, \code{won_how}, \code{win_type} and \code{km_solo}.
 #'
 #' @examples
+#' #' The example is not evaluated due to long run time. Remove `if (FALSE) {}` to run.
+#'
 #' \dontrun{
 #' racedata("tdf", 2022)
 #' }
