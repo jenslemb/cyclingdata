@@ -9,7 +9,7 @@ reference:
   contents: cyclingscraper
 - title: Internal functions
   desc: |
-    These functions are activated by `cyclingscraper`. Users have no need to engage with these directly.
+    These functions are used internally by `cyclingscraper`. Users have no need to engage with these directly.
   contents:
   - raceinfo
   - racedata
