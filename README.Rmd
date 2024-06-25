@@ -9,6 +9,7 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+options(tibble.print_min = 5, tibble.print_max = 5)
 ```
 
 ## Overview
@@ -31,7 +32,7 @@ devtools::install_github("jenslemb/cyclingdata")
 You can access the data simply by loading the package and calling `cyclingdata`. 
 You can find more info about the data in the *reference section*
 
-```{r example}
+```{r, eval=FALSE}
 library(cyclingdata)
 
 cyclingdata
@@ -41,7 +42,7 @@ cyclingdata
 
 You can subset data using regular methods. Below is an example using `dplyr`. 
 
-```{r}
+```{r, eval=FALSE}
 library(dplyr)
 
 cyclingdata |> 
@@ -57,9 +58,8 @@ cyclingdata |>
 You can request multiple races and years. Please see the reference section for more details about
 accepted arguments. 
 
-```{r}
-cyclingscraper(races = c("tdf"), years = 2022:2023,
-               progress = FALSE) # should progress be printed? default is `TRUE` 
+```{r, eval=FALSE}
+cyclingscraper(races = c("tdf", "giro", "vuelta"), years = 2022:2023)
 ```
 
 
