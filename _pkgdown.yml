@@ -1,4 +1,20 @@
-url: ~
+url: https://jenslemb.github.io/cyclingdata/
 template:
   bootstrap: 5
+home: ~
+reference:
+- title: Data
+  contents: cyclingdata
+- title: Scrape cycling data
+  contents: cyclingscraper
+- title: Internal functions
+  desc: |
+    These functions are activated by `cyclingscraper`. Users have no need to engage with these directly.
+  contents:
+  - raceinfo
+  - racedata
+  - raceyears
+  - racenames
+  - raceurlkey
+  - checkrace
 

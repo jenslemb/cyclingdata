@@ -1,17 +1,26 @@
 #' @title Convert race identifiers to URL key
 #'
 #' @description
-#' This function is for internal use by `racedata` and `raceinfo` to convert
+#' This function is for internal use by \code{\link{racedata}} and \code{\link{raceinfo}} to convert
 #' the race identifier into a URL to be passed into the HTML request of the webscraping procedure.
 #'
 #' @param race race identifier. See below for details.
 #'
 #' @details
-#' The `race` parameter accepts the following inputs: `"tdf"` (Tour de France),
-#' `"grio"` (Giro d'Italia), `"vuelta"` (La Vuelta ciclista a España), `"dauphine"`
-#' (Critérium du Dauphiné), `"suisse"` (Tour de Suisse), `"tirreno"` (Tirreno-Adriatico),
-#' `"parisnice"` (Paris-Nice), `"romandie"` (Tour de Romandie), `"catalunya"` (Volta Ciclista a Catalunya),
-#' `"pologne"` (Tour de Pologne) and `"basque"` (Itzulia Basque Country).
+#' The \code{race} parameter accepts the following inputs:
+#' \itemize{
+#' \item \code{"tdf"} (Tour de France)
+#' \item \code{"giro"} (Giro d'Italia)
+#' \item \code{"vuelta"} (La Vuelta ciclista a España)
+#' \item \code{"dauphine"} (Critérium du Dauphiné)
+#' \item \code{"suisse"} (Tour de Suisse)
+#' \item \code{"tirreno"} (Tirreno-Adriatico)
+#' \item \code{"parisnice"} (Paris-Nice)
+#' \item \code{"romandie"} (Tour de Romandie)
+#' \item \code{"catalunya"} (Volta Ciclista a Catalunya)
+#' \item \code{"pologne"} (Tour de Pologne)
+#' \item \code{"basque"} (Itzulia Basque Country)
+#' }
 #'
 #' @return An URL key for procyclingstats.com corresponding to the race requested by user
 #' @export

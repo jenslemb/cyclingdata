@@ -2,7 +2,7 @@
 % Please edit documentation in R/raceyears.R
 \name{raceyears}
 \alias{raceyears}
-\title{List of years where races exist.}
+\title{List of years where races were completed.}
 \usage{
 raceyears()
 }
@@ -10,7 +10,7 @@ raceyears()
 A list containing race years for each race
 }
 \description{
-This function is for internal use by `cyclingscraper` and `checkrace` to ensure
+This function is for internal use by \code{\link{cyclingscraper}} and \code{\link{checkrace}} to ensure
 that HTML requests are only passed for years were a given race exists.
 }
 \examples{

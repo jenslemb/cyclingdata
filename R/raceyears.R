@@ -1,7 +1,7 @@
-#' @title List of years where races exist.
+#' @title List of years where races were completed.
 #'
 #' @description
-#' This function is for internal use by `cyclingscraper` and `checkrace` to ensure
+#' This function is for internal use by \code{\link{cyclingscraper}} and \code{\link{checkrace}} to ensure
 #' that HTML requests are only passed for years were a given race exists.
 #'
 #' @return A list containing race years for each race

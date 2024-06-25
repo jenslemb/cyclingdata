@@ -1,8 +1,8 @@
 Type: Package
 Package: cyclingdata
-Title: A comprehensive dataset on stage-races in professional cycling.
+Title: A comprehensive dataset on stage-races in professional cycling
 Version: 0.1.0
-Author: Jens
+Author: Jens Lemb
 Maintainer: Jens Lemb <jenslemb@gmail.com>
 Description: The package contains a comprehensive dataset of 11,125 stages from 
     professional cyling across more than 120 years and allows users to scrape data 
@@ -20,5 +20,5 @@ LazyData: true
 RoxygenNote: 7.3.1
 Depends: 
     R (>= 2.10)
-URL: https://github.com/jenslemb/cyclingdata
+URL: https://github.com/jenslemb/cyclingdata, https://jenslemb.github.io/cyclingdata/
 BugReports: https://github.com/jenslemb/cyclingdata/issues

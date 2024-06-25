@@ -1,18 +1,27 @@
 #' @title Convert race identifier to full names.
 #'
 #' @description
-#' This function is for internal use by `racedata` to (a) print progress
-#' and (b) return correct full names of races in the column `race`.
+#' This function is for internal use by \code{\link{racedata}} to (a) print progress
+#' and (b) return correct full names of races in the column \code{race}.
 #' in the data produced by the webscraping procedure.
 #'
 #' @param race A character race identifier. See below for details.
 #'
 #' @details
-#' The `race` parameter accepts the following inputs: `"tdf"` (Tour de France),
-#' `"grio"` (Giro d'Italia), `"vuelta"` (La Vuelta ciclista a España), `"dauphine"`
-#' (Critérium du Dauphiné), `"suisse"` (Tour de Suisse), `"tirreno"` (Tirreno-Adriatico),
-#' `"parisnice"` (Paris-Nice), `"romandie"` (Tour de Romandie), `"catalunya"` (Volta Ciclista a Catalunya),
-#' `"pologne"` (Tour de Pologne) and `"basque"` (Itzulia Basque Country).
+#' The \code{race} parameter accepts the following inputs:
+#' \itemize{
+#' \item \code{"tdf"} (Tour de France)
+#' \item \code{"giro"} (Giro d'Italia)
+#' \item \code{"vuelta"} (La Vuelta ciclista a España)
+#' \item \code{"dauphine"} (Critérium du Dauphiné)
+#' \item \code{"suisse"} (Tour de Suisse)
+#' \item \code{"tirreno"} (Tirreno-Adriatico)
+#' \item \code{"parisnice"} (Paris-Nice)
+#' \item \code{"romandie"} (Tour de Romandie)
+#' \item \code{"catalunya"} (Volta Ciclista a Catalunya)
+#' \item \code{"pologne"} (Tour de Pologne)
+#' \item \code{"basque"} (Itzulia Basque Country)
+#' }
 #'
 #' @return The full name of race as character.
 #' @export

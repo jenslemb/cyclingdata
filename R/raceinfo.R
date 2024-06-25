@@ -1,21 +1,30 @@
 #' @title Scrape race information from procyclingstats.com.
 #'
 #' @description
-#' This function is for internal use by `cyclingscraper` and `racedata` to retrieve information about stages
+#' This function is for internal use by \code{\link{cyclingscraper}} and \code{\link{racedata}} to retrieve information about stages
 #' of the requested race.
 #'
 #' @param race A character race identifier. See below for details.
-#' @param year A number corresponding to requested race year with the format: `YYYY`.
+#' @param year A number corresponding to requested race year with the format: \code{YYYY}.
 #'
 #' @details
-#' The `race` parameter accepts the following inputs: `"tdf"` (Tour de France),
-#' `"grio"` (Giro d'Italia), `"vuelta"` (La Vuelta ciclista a España), `"dauphine"`
-#' (Critérium du Dauphiné), `"suisse"` (Tour de Suisse), `"tirreno"` (Tirreno-Adriatico),
-#' `"parisnice"` (Paris-Nice), `"romandie"` (Tour de Romandie), `"catalunya"` (Volta Ciclista a Catalunya),
-#' `"pologne"` (Tour de Pologne), and `"basque"` (Itzulia Basque Country).
+#' The \code{race} parameter accepts the following inputs:
+#' \itemize{
+#' \item \code{"tdf"} (Tour de France)
+#' \item \code{"giro"} (Giro d'Italia)
+#' \item \code{"vuelta"} (La Vuelta ciclista a España)
+#' \item \code{"dauphine"} (Critérium du Dauphiné)
+#' \item \code{"suisse"} (Tour de Suisse)
+#' \item \code{"tirreno"} (Tirreno-Adriatico)
+#' \item \code{"parisnice"} (Paris-Nice)
+#' \item \code{"romandie"} (Tour de Romandie)
+#' \item \code{"catalunya"} (Volta Ciclista a Catalunya)
+#' \item \code{"pologne"} (Tour de Pologne)
+#' \item \code{"basque"} (Itzulia Basque Country)
+#' }
 #'
-#' @return a dataframe containing race information for `race` in `year` with the following
-#' variables included: `stage`, `stage_id` and `stage_type`.
+#' @return a dataframe containing race information for \code{race} in \code{year} with the following
+#' variables included: \code{stage}, \code{stage_id} and \code{stage_type}.
 #'
 #' @examples
 #' raceinfo("tdf", 2022)

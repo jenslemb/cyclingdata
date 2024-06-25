@@ -1,18 +1,27 @@
-#' @title Check whether a race exists in a given year.
+#' @title Check whether a race was completed in a given year.
 #'
 #' @description
-#' This function is for internal use by the functions `racedata` and `raceoverview`
+#' This function is for internal use by the functions \code{\link{racedata}} and \code{\link{raceinfo}}
 #' to ensure that the webscraping procedure does not return an error.
 #'
 #' @param race A character race identifier. See below for details.
-#' @param year A number corresponding to requested race year with the format: `YYYY`.
+#' @param year A number corresponding to requested race year with the format: \code{YYYY}.
 #'
 #' @details
-#' The `race` parameter accepts the following inputs: `"tdf"` (Tour de France),
-#' `"grio"` (Giro d'Italia), `"vuelta"` (La Vuelta ciclista a España), `"dauphine"`
-#' (Critérium du Dauphiné), `"suisse"` (Tour de Suisse), `"tirreno"` (Tirreno-Adriatico),
-#' `"parisnice"` (Paris-Nice), `"romandie"` (Tour de Romandie), `"catalunya"` (Volta Ciclista a Catalunya),
-#' `"pologne"` (Tour de Pologne) and `"basque"` (Itzulia Basque Country).
+#' The \code{race} parameter accepts the following inputs:
+#' \itemize{
+#' \item \code{"tdf"} (Tour de France)
+#' \item \code{"giro"} (Giro d'Italia)
+#' \item \code{"vuelta"} (La Vuelta ciclista a España)
+#' \item \code{"dauphine"} (Critérium du Dauphiné)
+#' \item \code{"suisse"} (Tour de Suisse)
+#' \item \code{"tirreno"} (Tirreno-Adriatico)
+#' \item \code{"parisnice"} (Paris-Nice)
+#' \item \code{"romandie"} (Tour de Romandie)
+#' \item \code{"catalunya"} (Volta Ciclista a Catalunya)
+#' \item \code{"pologne"} (Tour de Pologne)
+#' \item \code{"basque"} (Itzulia Basque Country)
+#' }
 #'
 #' @return Error message if race was not conducted in requested year. Otherwise nothing.
 #' @export
