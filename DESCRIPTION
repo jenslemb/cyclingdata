@@ -1,0 +1,22 @@
+Type: Package
+Package: cyclingdata
+Title: A comprehensive dataset on stage-races in professional cycling.
+Version: 0.1.0
+Author: Jens
+Maintainer: Jens Lemb
+Description: The package contains a comprehensive dataset of 11,125 stages from 
+    professional cyling across more than 120 years and allows users to scrape data 
+    from www.procyclingstats.com.
+License: MIT + file LICENSE
+Imports: 
+    dplyr,
+    janitor,
+    lubridate,
+    rvest,
+    stringr,
+    tidyr
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.1
+Depends: 
+    R (>= 2.10)
