@@ -34,8 +34,11 @@ This function webscrapes stage-level race data for Grand Tours and all major sta
 The function can handle multiple races and years.
 }
 \examples{
+\donttest{
 cyclingscraper(races = c("tdf", "giro", "vuelta"), years = 2010:2023)
 cyclingscraper(races = "tdf", years = "all")
 cyclingscraper(races = c("tdf", "dauphine"), years = 2022)
 cyclingscraper(races = "tdf", years = c(1996, 2022, 2023), progress = FALSE, sleep = 2)
+}
+
 }

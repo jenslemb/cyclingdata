@@ -58,7 +58,8 @@ You can request multiple races and years. Please see the reference section for m
 accepted arguments. 
 
 ```{r}
-cyclingscraper(races = c("tdf", "giro"), years = 2022:2023)
+cyclingscraper(races = c("tdf"), years = 2022:2023,
+               progress = FALSE) # should progress be printed? default is `TRUE` 
 ```
 
 
