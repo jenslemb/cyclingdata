@@ -48,9 +48,9 @@ cyclingdata |>
   filter(year == 2023)
 ```
 
-### Using `cyclingscraper()`
+### Scraping data
 
-\[cyclingscraper()\] allows you to scrape race data directly from
+`cyclingscraper()` allows you to scrape race data directly from
 <https://www.procyclingstats.com>. You can request multiple races and
 years. Please see the reference section for more details about accepted
 arguments.
