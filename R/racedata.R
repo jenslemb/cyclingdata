@@ -116,7 +116,7 @@ racedata <- function(race, year, progress = TRUE, sleep = 1) {
                                          parcours_type=="icon profile p1"~"Flat",
                                          parcours_type=="icon profile p4"~"Mountains flat finish",
                                          parcours_type=="icon profile p5"~"Mountains uphill finish",
-                                         TRUE~""))
+                                         TRUE~NA))
 
     # avg_speed_winner only observed for non-cancelled stages.
     # Conditional statement avoids error when stage is cancelled
