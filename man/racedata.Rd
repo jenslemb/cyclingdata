@@ -43,6 +43,8 @@ The \code{race} parameter accepts the following inputs:
 }
 }
 \examples{
+#' The example is not evaluated due to long run time. Remove `if (FALSE) {}` to run.
+
 \dontrun{
 racedata("tdf", 2022)
 }

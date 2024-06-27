@@ -1,13 +1,12 @@
 
 # Introduction
 
-The `cyclingdata` package contains two main components that enables
-users to access and analyze data on professional cycling:
+The `cyclingdata` package contains two main components that enable users
+to access and analyze data on professional cycling:
 
-1.  A comprehensive dataset (`cyclingdata`) on stage-level information
-    on 11,125 stages across 120 years of cycling. The dataset comprises
-    all Grand Tours and most major one-week stage races in professional
-    cycling.
+1.  A comprehensive dataset (`cyclingdata`) on 11,125 stages between
+    1903 and 2024. The dataset includes all Grand Tours and most major
+    one-week stage races in professional cycling.
 
 2.  A function (`cyclingscraper`) that allows users to harvest data on
     professional cycling. The function accesses the requested race on
@@ -36,10 +35,11 @@ following races are included:
 - Volta Ciclista a Catalunya
 - … more to come (see *Future releases* below)
 
-The dataset includes 11,125 stages between 1903 and 2024 and contains a
-range of stage characteristics and how the stage was won (assuming it’s
-completed). See the function reference for `cyclingdata` for more
-information about the data.
+The data contains a range of stage characteristics and information about
+how the stage was won (assuming it’s completed). See the function
+reference for `cyclingdata` for more information about the data and
+specific variables in the dataset. Please note that there is a lot of
+missing data prior to 2000 especially for non-Grand Tours.
 
 ## Installation
 
