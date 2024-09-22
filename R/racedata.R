@@ -86,10 +86,10 @@ racedata <- function(race, year, progress = TRUE, sleep = 1) {
       rvest::html_elements("li > div")|>
       rvest::html_text2()
 
-    temp_stage <- temp_stage[1:32]
+    temp_stage <- temp_stage[1:34]
 
     # Extract parcours type
-    temp_stage[16] <- url_data |>
+    temp_stage[17] <- url_data |>
       rvest::read_html() |>
       rvest::html_elements("li > div > span") |>
       rvest::html_attr("class")
@@ -109,13 +109,13 @@ racedata <- function(race, year, progress = TRUE, sleep = 1) {
         avg_temperature = as.numeric(stringr::str_remove(avg_temperature, "°C")),
         profile_score = as.numeric(profile_score),
         startlist_quality = as.numeric(startlist_quality_score),
-        vertical_meters = as.numeric(vert_meters),
+        vertical_meters = as.numeric(vertical_meters),
         date = lubridate::dmy(date),
-        parcours_type = dplyr::case_when(parcours_type=="icon profile p3"~"Hills uphill finish",
-                                         parcours_type=="icon profile p2"~"Hills flat finish",
-                                         parcours_type=="icon profile p1"~"Flat",
-                                         parcours_type=="icon profile p4"~"Mountains flat finish",
-                                         parcours_type=="icon profile p5"~"Mountains uphill finish",
+        parcours_type = dplyr::case_when("icon_profile_p3" %in% colnames(stage_data) ~ "Hills uphill finish",
+                                         "icon_profile_p2" %in% colnames(stage_data) ~ "Hills flat finish",
+                                         "icon_profile_p1" %in% colnames(stage_data) ~ "Flat",
+                                         "icon_profile_p4" %in% colnames(stage_data) ~ "Mountains flat finish",
+                                         "icon_profile_p5" %in% colnames(stage_data) ~ "Mountains uphill finish",
                                          TRUE~NA))
 
     # avg_speed_winner only observed for non-cancelled stages.
@@ -162,15 +162,20 @@ racedata <- function(race, year, progress = TRUE, sleep = 1) {
                    "`startlist_quality`, `avg_speed_winner`, `won_how`, `win_type` and `km_solo`"))
       }
 
-    stage_data <- stage_data |>
-      dplyr::select(-c(points_scale, race_category, race_ranking, uci_scale, start_time))
-
     # create identification variables
     stage_data$i <- i
     stage_data$race <- racenames(race)
     stage_data$year <- year
 
-    #store data in list
+    # keep only relevant variables
+    stage_data <- stage_data |>
+      dplyr::select(race, year, i,
+                    date, departure, arrival, parcours_type,
+                    distance,vertical_meters, profile_score,
+                    startlist_quality, avg_speed_winner, won_how,
+                    win_type, km_solo)
+
+    # store data in list
     datalist_stage[[i]] <- stage_data
 
     }
