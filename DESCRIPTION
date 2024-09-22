@@ -1,7 +1,7 @@
 Type: Package
 Package: cyclingdata
 Title: A comprehensive dataset on stage-races in professional cycling
-Version: 0.1.0
+Version: 0.2.0
 Author: Jens Lemb
 Maintainer: Jens Lemb <jenslemb@gmail.com>
 Description: The package contains a comprehensive dataset of 11,125 stages from 
