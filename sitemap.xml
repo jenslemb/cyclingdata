@@ -1,48 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://jenslemb.github.io/cyclingdata/404.html</loc>
-  </url>
-  <url>
-    <loc>https://jenslemb.github.io/cyclingdata/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://jenslemb.github.io/cyclingdata/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://jenslemb.github.io/cyclingdata/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://jenslemb.github.io/cyclingdata/index.html</loc>
-  </url>
-  <url>
-    <loc>https://jenslemb.github.io/cyclingdata/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://jenslemb.github.io/cyclingdata/reference/checkrace.html</loc>
-  </url>
-  <url>
-    <loc>https://jenslemb.github.io/cyclingdata/reference/cyclingdata.html</loc>
-  </url>
-  <url>
-    <loc>https://jenslemb.github.io/cyclingdata/reference/cyclingscraper.html</loc>
-  </url>
-  <url>
-    <loc>https://jenslemb.github.io/cyclingdata/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://jenslemb.github.io/cyclingdata/reference/racedata.html</loc>
-  </url>
-  <url>
-    <loc>https://jenslemb.github.io/cyclingdata/reference/raceinfo.html</loc>
-  </url>
-  <url>
-    <loc>https://jenslemb.github.io/cyclingdata/reference/racenames.html</loc>
-  </url>
-  <url>
-    <loc>https://jenslemb.github.io/cyclingdata/reference/raceurlkey.html</loc>
-  </url>
-  <url>
-    <loc>https://jenslemb.github.io/cyclingdata/reference/raceyears.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://jenslemb.github.io/cyclingdata/404.html</loc></url>
+<url><loc>https://jenslemb.github.io/cyclingdata/LICENSE-text.html</loc></url>
+<url><loc>https://jenslemb.github.io/cyclingdata/LICENSE.html</loc></url>
+<url><loc>https://jenslemb.github.io/cyclingdata/authors.html</loc></url>
+<url><loc>https://jenslemb.github.io/cyclingdata/index.html</loc></url>
+<url><loc>https://jenslemb.github.io/cyclingdata/news/index.html</loc></url>
+<url><loc>https://jenslemb.github.io/cyclingdata/reference/checkrace.html</loc></url>
+<url><loc>https://jenslemb.github.io/cyclingdata/reference/cyclingdata.html</loc></url>
+<url><loc>https://jenslemb.github.io/cyclingdata/reference/cyclingscraper.html</loc></url>
+<url><loc>https://jenslemb.github.io/cyclingdata/reference/index.html</loc></url>
+<url><loc>https://jenslemb.github.io/cyclingdata/reference/racedata.html</loc></url>
+<url><loc>https://jenslemb.github.io/cyclingdata/reference/raceinfo.html</loc></url>
+<url><loc>https://jenslemb.github.io/cyclingdata/reference/racenames.html</loc></url>
+<url><loc>https://jenslemb.github.io/cyclingdata/reference/raceurlkey.html</loc></url>
+<url><loc>https://jenslemb.github.io/cyclingdata/reference/raceyears.html</loc></url>
 </urlset>
+
