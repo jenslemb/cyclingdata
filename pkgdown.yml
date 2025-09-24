@@ -2,7 +2,7 @@ pandoc: 3.1.11
 pkgdown: 2.1.3
 pkgdown_sha: ~
 articles: {}
-last_built: 2025-09-24T08:46Z
+last_built: 2025-09-24T09:08Z
 urls:
   reference: https://jenslemb.github.io/cyclingdata/reference
   article: https://jenslemb.github.io/cyclingdata/articles
