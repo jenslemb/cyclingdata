@@ -1,5 +1,8 @@
 url: https://jenslemb.github.io/cyclingdata/
 template:
+  includes:
+    in_header: |
+      <meta name="google-sit-verification" content="google39c20e79e8be12c8.html"
   bootstrap: 5
 home: ~
 reference:
