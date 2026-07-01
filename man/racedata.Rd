@@ -20,7 +20,7 @@ to ensure that servers are not overloaded. Minimum value is \code{1} (second) wh
 a dataframe containing stage-level data for \code{races} in \code{year} with the following
 variables included: \code{race}, \code{year}, \code{stage}, \code{races}, \code{stage_num}, \code{stage_type}, \code{date},
 \code{departure}, \code{arrival}, \code{parcours_type}, \code{distance}, \code{vertical_meters}, \code{profile_score},
-\code{startlist_quality}, \code{avg_speed_winner}, \code{won_how}, \code{win_type} and \code{km_solo}.
+\code{startlist_quality}, \code{startlist_quality_remaining}, \code{avg_speed_winner}, \code{won_how}, \code{win_type} and \code{km_solo}.
 }
 \description{
 This function is for internal use by \code{\link{cyclingscraper}} to retrieve stage-level

@@ -22,7 +22,7 @@ or \code{"all"} for all available race years. Default is \code{"all"}.}
 a dataframe containing stage-level data for \code{races} in \code{year} with the following
 variables included: \code{race}, \code{year}, \code{stage}, \code{races}, \code{stage_num}, \code{stage_type}, \code{date},
 \code{departure}, \code{arrival}, \code{parcours_type}, \code{distance}, \code{vertical_meters}, \code{profile_score},
-\code{startlist_quality}, \code{avg_speed_winner}, \code{won_how}, \code{win_type} and \code{km_solo}.
+\code{startlist_quality}, \code{startlist_quality_remaining}, \code{avg_speed_winner}, \code{won_how}, \code{win_type} and \code{km_solo}.
 }
 \description{
 This function webscrapes stage-level race data for Grand Tours and major stage-races in professional cycling.
