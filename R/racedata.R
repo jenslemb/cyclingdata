@@ -29,7 +29,7 @@
 #' @return a dataframe containing stage-level data for \code{races} in \code{year} with the following
 #' variables included: \code{race}, \code{year}, \code{stage}, \code{races}, \code{stage_num}, \code{stage_type}, \code{date},
 #' \code{departure}, \code{arrival}, \code{parcours_type}, \code{distance}, \code{vertical_meters}, \code{profile_score},
-#' \code{startlist_quality}, \code{avg_speed_winner}, \code{won_how}, \code{win_type} and \code{km_solo}.
+#' \code{startlist_quality}, \code{startlist_quality_remaining}, \code{avg_speed_winner}, \code{won_how}, \code{win_type} and \code{km_solo}.
 #'
 #' @examples
 #' #' The example is not evaluated due to long run time. Remove `if (FALSE) {}` to run.
@@ -80,27 +80,54 @@ racedata <- function(race, year, progress = TRUE, sleep = 1) {
     # Suspend execution for `sleep` seconds
     Sys.sleep(sleep)
 
-    # Extract data
-    temp_stage <- url_data |>
-      rvest::read_html() |>
-      rvest::html_elements("li > div")|>
+    # Extract data. Read the page once and reuse it for both the label/value
+    # nodes and the profile icon, rather than fetching it twice.
+    page <- rvest::read_html(url_data)
+
+    temp_stage <- page |>
+      rvest::html_elements("div.left.w70 li > div") |>
       rvest::html_text2()
 
-    temp_stage <- temp_stage[1:34]
+    # Build label/value pairs from whatever length the page actually has.
+    # Don't truncate to a fixed length of 34: older stages omit fields
+    # (e.g. no "Avg. temperature" box), which shifts every later field
+    # left by one position if you assume a fixed length.
 
-    # Extract parcours type
-    temp_stage[17] <- url_data |>
-      rvest::read_html() |>
-      rvest::html_elements("li > div > span") |>
-      rvest::html_attr("class")
+    labels <- temp_stage[seq(1, length(temp_stage), 2)]
+    values <- temp_stage[seq(2, length(temp_stage), 2)]
 
-    # Create data.frame
-    stage_data <- t(temp_stage[seq(0,length(temp_stage),2)])
-    colnames(stage_data) <- temp_stage[seq(1,length(temp_stage),2)]
-    stage_data <-data.frame(stage_data)
+    stage_data <- as.data.frame(t(values), stringsAsFactors = FALSE)
+    colnames(stage_data) <- labels
 
     # Clean names of variables
     stage_data <- janitor::clean_names(stage_data)
+
+    # Extract parcours type.
+    profile_icon <- page |>
+      rvest::html_elements("div.left.w70 li > div > span") |>
+      rvest::html_attr("class")
+
+    parcours_icon_class <- if (length(profile_icon) >= 1) profile_icon[1] else NA_character_
+
+    parcours_type_lookup <- dplyr::case_when(
+      stringr::str_detect(parcours_icon_class, "\\bp3\\b") ~ "Hills uphill finish",
+      stringr::str_detect(parcours_icon_class, "\\bp2\\b") ~ "Hills flat finish",
+      stringr::str_detect(parcours_icon_class, "\\bp1\\b") ~ "Flat",
+      stringr::str_detect(parcours_icon_class, "\\bp4\\b") ~ "Mountains flat finish",
+      stringr::str_detect(parcours_icon_class, "\\bp5\\b") ~ "Mountains uphill finish",
+      TRUE ~ NA_character_
+    )
+
+    # Guarantee columns the rest of this function relies on exist, even if
+    # this stage's page didn't publish them.
+    expected_cols <- c("distance", "avg_temperature", "profile_score",
+                       "startlist_quality_score", "vertical_meters",
+                       "date", "departure", "arrival",
+                       "avg_speed_winner", "won_how")
+    missing_cols <- setdiff(expected_cols, colnames(stage_data))
+    if (length(missing_cols) > 0) {
+      stage_data[missing_cols] <- NA_character_
+    }
 
     # Generate variables
     stage_data <- stage_data |>
@@ -108,19 +135,18 @@ racedata <- function(race, year, progress = TRUE, sleep = 1) {
         distance = as.numeric(stringr::str_remove(distance, "km")),
         avg_temperature = as.numeric(stringr::str_remove(avg_temperature, "°C")),
         profile_score = as.numeric(profile_score),
-        startlist_quality = as.numeric(startlist_quality_score),
+        startlist_quality = as.numeric(stringr::str_extract(startlist_quality_score, "^[0-9]+")),
+        startlist_quality_remaining = dplyr::coalesce(
+          as.numeric(stringr::str_extract(startlist_quality_score, "(?<=\\()[0-9]+(?=\\))")),
+          as.numeric(stringr::str_extract(startlist_quality_score, "^[0-9]+"))),
         vertical_meters = as.numeric(vertical_meters),
         date = lubridate::dmy(date),
-        parcours_type = dplyr::case_when("icon_profile_p3" %in% colnames(stage_data) ~ "Hills uphill finish",
-                                         "icon_profile_p2" %in% colnames(stage_data) ~ "Hills flat finish",
-                                         "icon_profile_p1" %in% colnames(stage_data) ~ "Flat",
-                                         "icon_profile_p4" %in% colnames(stage_data) ~ "Mountains flat finish",
-                                         "icon_profile_p5" %in% colnames(stage_data) ~ "Mountains uphill finish",
-                                         TRUE~NA))
+        parcours_type = parcours_type_lookup)
 
     # avg_speed_winner only observed for non-cancelled stages.
     # Conditional statement avoids error when stage is cancelled
-    if (stringr::str_detect(stage_data$avg_speed_winner,pattern = "km/h")) {
+    if (!is.na(stage_data$avg_speed_winner) &&
+        stringr::str_detect(stage_data$avg_speed_winner, pattern = "km/h")) {
       stage_data <- stage_data |>
         dplyr::mutate(avg_speed_winner = as.numeric(stringr::str_remove(avg_speed_winner, "km/h")))
       } else {
@@ -172,7 +198,8 @@ racedata <- function(race, year, progress = TRUE, sleep = 1) {
       dplyr::select(race, year, i,
                     date, departure, arrival, parcours_type,
                     distance,vertical_meters, profile_score,
-                    startlist_quality, avg_speed_winner, won_how,
+                    startlist_quality, startlist_quality_remaining,
+                    avg_speed_winner, won_how,
                     win_type, km_solo)
 
     # store data in list
@@ -218,7 +245,8 @@ racedata <- function(race, year, progress = TRUE, sleep = 1) {
     dplyr::select(race, year, stage, stage_id, stage_num, stage_type,
                   date, departure, arrival, parcours_type, distance,
                   vertical_meters, profile_score, startlist_quality,
-                  avg_speed_winner, won_how, win_type, km_solo)
+                  startlist_quality_remaining, avg_speed_winner, won_how,
+                  win_type, km_solo)
 
   return(data)
 
