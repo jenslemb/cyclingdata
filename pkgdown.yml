@@ -1,8 +1,8 @@
-pandoc: 3.1.11
-pkgdown: 2.1.3
+pandoc: 3.8.3
+pkgdown: 2.2.0
 pkgdown_sha: ~
 articles: {}
-last_built: 2025-09-24T09:22Z
+last_built: 2026-07-03T13:36Z
 urls:
   reference: https://jenslemb.github.io/cyclingdata/reference
   article: https://jenslemb.github.io/cyclingdata/articles
